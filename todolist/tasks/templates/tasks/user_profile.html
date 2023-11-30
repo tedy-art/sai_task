@@ -1,0 +1,16 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+<div class="container my-5">
+  <h1>User Profile</h1>
+  <p>Username: {{ user.username }}</p>
+  <div class="mb-3">
+    <h2>My To-Do List</h2>
+    <ul>
+      {% for task in user.todo_set.all %}
+        <li>{{ task.name }} - {{ task.description }}{% if task.completed %} (Completed){% endif %}</li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+{% endblock %}

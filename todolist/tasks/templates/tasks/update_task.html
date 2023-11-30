@@ -1,0 +1,16 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+<div class="container my-5">
+  <div class="card">
+    <div class="card-body">
+      <h1 class="text-center">Edit Task</h1>
+      <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary btn-block">Update Task</button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
