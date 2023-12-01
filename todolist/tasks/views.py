@@ -1,12 +1,14 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.contrib.auth import login, authenticate, logout
+from django.contrib.auth import login, logout, authenticate
 from .forms import UserRegistrationForm, UserLoginForm, ToDoForm
 from .models import ToDo, CustomUser
 
 
 def register(request):
     if request.method == 'POST':
+        # if method is post
         form = UserRegistrationForm(request.POST)
+        # UserRegistrationForm --> forms.py
         if form.is_valid():
             user = form.save()
             login(request, user)
@@ -19,10 +21,11 @@ def register(request):
 def user_login(request):
     if request.method == 'POST':
         form = UserLoginForm(request, request.POST)
+        # UserLoginForm --> forms.py
         if form.is_valid():
             user = form.get_user()
             login(request, user)
-            return redirect('dashboard')
+            return redirect('dashboard')  # dashboard.html
     else:
         form = UserLoginForm()
     return render(request, 'tasks/login.html', {'form': form})
@@ -30,15 +33,15 @@ def user_login(request):
 
 def user_logout(request):
     logout(request)
-    return redirect('login')
+    return redirect('login')  # login.html
 
 
 def dashboard(request):
     if not request.user.is_authenticated:
-        # Redirect to the registration page
-        return redirect('register')
+        # Redirect to the login page
+        return redirect('login')  # login.html
 
-    tasks = ToDo.objects.filter(user=request.user)
+    tasks = ToDo.objects.filter(user=request.user)  # if a user is login then it will show all tasks available.
     return render(request, 'tasks/dashboard.html', {'tasks': tasks})
 
 
