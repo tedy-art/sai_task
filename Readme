@@ -1,0 +1,19 @@
+step :
+1) pip install virtualenv
+2) python -m venv env_name
+3) pip install django
+4) env_name\Scripts\activate.bat
+5) django-admin startproject name_Of_project
+6) cd name_Of_project
+7) py manage.py startapp app_name
+8) code .
+9) setting --> installed_app --> name_of_app
+10) py manage.py migrate --> for activate databases
+11) py manage.py makemigrations --> for apply databases changes
+12) py manage.py createsuperuser
+13) urls.py -> path of our file/logic
+    urlpattern = [
+        path("name_of_url\", views.home)
+    ]
+14) views.py --> def home --> templates/ database
+15) models/ template/ static file
