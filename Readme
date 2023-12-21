@@ -1,12 +1,12 @@
 step :
-1) pip install virtualenv
-2) python -m venv env_name
-3) pip install django
-4) env_name\Scripts\activate.bat
-5) django-admin startproject name_Of_project
+1) pip install virtualenv --> installation of virtual evnironment
+2) python -m venv env_name --> set up of virtual evnironment
+3) pip install django --> installation of Django
+4) env_name\Scripts\activate.bat --> activate virtual evnironment
+5) django-admin startproject name_Of_project --> create a new project
 6) cd name_Of_project
-7) py manage.py startapp app_name
-8) code .
+7) py manage.py startapp app_name --> create new app in project
+8) code . --> open VS code
 9) setting --> installed_app --> name_of_app
 10) py manage.py migrate --> for activate databases
 11) py manage.py makemigrations --> for apply databases changes
